@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+  <section>
+    <div class="container">
+      <div class="row mt-5">
+        <div class='col-6 '>
+          <div class="me-5">
+            <img src="mac.png" class="img-fluid" alt="">
+          </div>
+        </div>
+        <div class='col-6 '>
+          <div class="ms-5">
+            <h1>customize your blue 24 inch imac with apple m1 chip</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate exercitationem nam
+              distinctio
+              nisi aliquam odit nobis nostrum vel magnam magni. Perspiciatis, delectus. Debitis, nulla
+              deleniti, ullam, possimus sapiente ad explicabo fuga doloribus nobis alias expedita quo!
+              Expedita est aperiam deleniti!</p>
+            <label for="Memory">Memory</label><br>
+            <input type="button" id="memory8gb" value="8GB unfiled memory">
+            <input type="button" id="memory16gb" value="16GB unfiled memory"><br><br>
+
+            <label for="Memory">storage</label><br>
+            <input type="button" id="storage256gb" value="256GB SSD storage">
+            <input type="button" id="storage512gb" value="512GB SSD storage">
+            <input type="button" id="storage1tb" value="1TB SSD storage"><br><br>
+
+            <label for="Memory">Choose your delivery option</label><br>
+            <input type="button" id="freeDelivery" value="Friday Aug 25 Free Prime Delivery">
+            <input type="button" id="expressDelivery" value="Friday Aug 21 Delivery Charge $20"><br><br><br>
+
+            <div class="cart-item">
+              <div class="row">
+                <div class="col-md-8">
+                  <h5>Best Price</h5>
+                  <h5>Extra Money Cost</h5>
+                  <h5>Extra Storage Cost</h5>
+                  <h5>Delivery Cost</h5>
+                  <hr>
+                  <h5>Total Price</h5>
+                </div>
+                <div class="col-md-4 status">
+                  <h5>$<span id="bestCost"> 1299</span></h5>
+                  <h5>$<span id="memoryCost">0</span></h5>
+                  <h5>$<span id="storageCost">0</span></h5>
+                  <h5>$<span id="deliveryCost">0</span></h5><br>
+                  <h5>$<span id="totalCost">1299</span></h5>
+
+
+
+                </div>
+              </div>
+            </div><br><br>
+
+
+            <label for="">
+              <h4><b>Add Promo Code</b></h1>
+            </label><br>
+            <input id="inputText" type="text">
+            <button id="applyBtn">Apply</button><br><br>
+
+
+          </div>
+        </div>
+      </div>
+      <hr>
+      <h1 class="d-flex justify-content-center"><b>Total: $ <span id="lastTotal">1299</span></b></h1>
+    </div>
+
+  </section>
+
+  <script>
+    // memory
+    document
+      .getElementById("memory8gb")
+      .addEventListener("click", function () {
+        document.getElementById("memoryCost").innerText = 00;
+        total()
+
+
+
+
+
+
+      });
+    document
+      .getElementById("memory16gb")
+      .addEventListener("click", function () {
+        document.getElementById("memoryCost").innerText = 180;
+        total()
+
+
+      });
+
+    // storage
+    document
+      .getElementById("storage256gb")
+      .addEventListener("click", function () {
+        document.getElementById("storageCost").innerText = 00;
+        total()
+      });
+    document
+      .getElementById("storage512gb")
+      .addEventListener("click", function () {
+        document.getElementById("storageCost").innerText = 100;
+        total()
+      });
+
+    document
+      .getElementById("storage1tb")
+      .addEventListener("click", function () {
+        document.getElementById("storageCost").innerText = 180;
+        total()
+      });
+    // delivery
+    document
+      .getElementById("freeDelivery")
+      .addEventListener("click", function () {
+        document.getElementById("deliveryCost").innerText = 00;
+        total()
+      });
+    document
+      .getElementById("expressDelivery")
+      .addEventListener("click", function () {
+        document.getElementById("deliveryCost").innerText = 20;
+        total()
+      });
+
+
+
+
+    function total() {
+      const memoryCost = parseFloat(document.getElementById('memoryCost').innerText)
+      const bestCost = parseFloat(document.getElementById('bestCost').innerText)
+      const storageCost = parseFloat(document.getElementById('storageCost').innerText)
+      const deliveryCost = parseFloat(document.getElementById('deliveryCost').innerText)
+      const total = bestCost + memoryCost + storageCost + deliveryCost
+      document.getElementById('totalCost').innerText = total
+      document.getElementById('lastTotal').innerText = total
+
+      return total
+    }
+    document.getElementById('applyBtn').addEventListener('click', function () {
+      const input = document.getElementById('inputText').value
+      if (input == 'stevekaku') {
+        const lastTotal = document.getElementById('lastTotal')
+        const lastTotalValue =lastTotal.innerText
+       let lastTotalParse = parseFloat(lastTotalValue)
+       let lastResult = lastTotalParse * .8
+       lastTotal.innerText = lastResult
+
+        
+
+      }
+
+    })
+
+  </script>
+
+</body>
+
+</html>
